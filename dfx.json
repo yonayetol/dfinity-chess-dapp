@@ -1,0 +1,26 @@
+{
+  "canisters": {
+    "motoko_exercise_backend": {
+      "main": "src/motoko_exercise_backend/main.mo",
+      "type": "motoko"
+    },
+    "motoko_exercise_frontend": {
+      "dependencies": [
+        "motoko_exercise_backend"
+      ],
+      "source": [
+        "src/motoko_exercise_frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "motoko_exercise_frontend"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
