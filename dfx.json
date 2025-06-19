@@ -1,0 +1,26 @@
+{
+  "canisters": {
+    "MyChessGame_backend": {
+      "main": "src/MyChessGame_backend/main.mo",
+      "type": "motoko"
+    },
+    "MyChessGame_frontend": {
+      "dependencies": [
+        "MyChessGame_backend"
+      ],
+      "source": [
+        "src/MyChessGame_frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "MyChessGame_frontend"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
