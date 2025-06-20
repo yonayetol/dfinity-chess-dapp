@@ -31,14 +31,19 @@ export default defineConfig({
     environment("all", { prefix: "DFX_" }),
   ],
   resolve: {
-    alias: [
-      {
-        find: "declarations",
-        replacement: fileURLToPath(
-          new URL("../declarations", import.meta.url)
-        ),
-      },
-    ],
+    alias: {
+      ...[
+        {
+          find: "declarations",
+          replacement: fileURLToPath(new URL("../declarations", import.meta.url)),
+        },
+      ].reduce((acc, { find, replacement }) => {
+        acc[find] = replacement;
+        return acc;
+      }, {}),
+      // Polyfill for buffer
+      buffer: "buffer/",
+    },
     dedupe: ['@dfinity/agent'],
   },
 });
