@@ -5,11 +5,13 @@ import ChessBoard from './ChessBoard.jsx';
 
 export default function App() {
   const [mode, setMode] = useState('home');
-  const [fen, setFen] = useState('start');
+  const [fen, setFen] = useState('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1');
   const [gameId, setGameId] = useState(null);
+  const [gameData, setGameData] = useState(null);
 
-  const handleJoinGame = (id) => {
+  const handleJoinGame = (id, game) => {
     setGameId(id);
+    setGameData(game);
     setMode('playGame');
   };
 
@@ -104,18 +106,6 @@ export default function App() {
                   </div>
                 </div>
               </div>
-
-              {/* Quick Actions */}
-              <div className="flex justify-center mt-8">
-                <div className="flex space-x-4">
-                  <button className="px-6 py-3 bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white font-bold rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl active:scale-95">
-                    Quick Play
-                  </button>
-                  <button className="px-6 py-3 bg-gradient-to-r from-secondary-500 to-secondary-600 hover:from-secondary-600 hover:to-secondary-700 text-white font-bold rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl active:scale-95">
-                    Tournament
-                  </button>
-                </div>
-              </div>
             </div>
           </div>
         )}
@@ -136,6 +126,7 @@ export default function App() {
               onMove={() => { }}
               isMyTurn={true}
               orientation={'white'}
+              gameData={gameData}
             />
           </div>
         )}

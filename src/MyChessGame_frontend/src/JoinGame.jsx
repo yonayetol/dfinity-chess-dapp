@@ -26,6 +26,11 @@ export default function JoinGame({ onBack, onJoin }) {
     fetchGames();
   }, []);
 
+  const handleJoinBattle = (game) => {
+    // Pass the full game object to the chess board
+    onJoin(game.id, game);
+  };
+
   if (isLoading) {
     return (
       <div className="w-full space-y-6 text-center">
@@ -99,7 +104,7 @@ export default function JoinGame({ onBack, onJoin }) {
                 </div>
 
                 <button
-                  onClick={(e) => { e.stopPropagation(); onJoin(game.id); }}
+                  onClick={(e) => { e.stopPropagation(); handleJoinBattle(game); }}
                   className={`btn px-6 py-3 ml-4 ${selectedGame === game.id ? 'bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700' : 'bg-gray-700 hover:bg-gray-600'}`}
                 >
                   Join Battle

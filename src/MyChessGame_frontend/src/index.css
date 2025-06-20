@@ -263,6 +263,22 @@ body {
     --tw-ring-color: #60a5fa;
 }
 
+.bg-amber-100 {
+    background-color: #fef3c7;
+}
+
+.bg-amber-700 {
+    background-color: #b45309;
+}
+
+.bg-amber-800 {
+    background-color: #92400e;
+}
+
+.border-amber-800 {
+    border-color: #92400e;
+}
+
 .bg-yellow-600 {
     background-color: #ca8a04;
 }
